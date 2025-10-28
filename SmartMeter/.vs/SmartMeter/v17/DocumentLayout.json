@@ -1,150 +1,153 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\",
+  "WorkspaceRootPath": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\smartmeter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:smartmeter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\arrearscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\arrearscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\meterreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\meterreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\tariffslabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\tariffslabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\todrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\todrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\tariffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\tariffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\orgunitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\orgunitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\meterreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\meterreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\consumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\consumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\arrears.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\arrears.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\orgunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\orgunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\migrations\\20251028052244_fixdatetimecolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:migrations\\20251028052244_fixdatetimecolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\meter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\meter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\metercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\metercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\consumercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\consumercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\todrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\todrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\tariffslab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\tariffslab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\models\\tariff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\tariff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\smartmeter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\smartmeter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:smartmeter.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\migrations\\20251028055542_finaldatetimefix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\smartmeter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:smartmeter.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\arrearscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\arrearscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\billingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\meterreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\meterreadingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\tariffslabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\tariffslabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\todrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\todrulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\tariffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\tariffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\orgunitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\orgunitcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\meter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\meter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\metercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\metercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\billing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\arrears.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\arrears.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\orgunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\orgunit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\meterreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\meterreading.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\consumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\consumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\migrations\\20251028055542_finaldatetimefix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:migrations\\20251028055542_finaldatetimefix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\user\\source\\repos\\smartrepo\\smartmeter\\migrations\\20251028050107_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\migrations\\20251028052244_fixdatetimecolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:migrations\\20251028052244_fixdatetimecolumns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\consumercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\consumercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\migrations\\20251028050107_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:migrations\\20251028050107_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:dtos\\authresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\todrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\todrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\tariffslab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\tariffslab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|c:\\users\\pc\\.vscode\\repos\\smartrepo\\smartmeter\\models\\tariff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{63B507FF-9492-41DD-B3C3-EB622A7290C0}|SmartMeter.csproj|solutionrelative:models\\tariff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -167,47 +170,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SmartMeter",
-              "DocumentMoniker": "C:\\Users\\user\\Source\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
-              "RelativeDocumentMoniker": "SmartMeter.csproj",
-              "ToolTip": "C:\\Users\\user\\Source\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
-              "RelativeToolTip": "SmartMeter.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-28T09:27:49.443Z",
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAEAQAAAAAAAAAAAAwPAQAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-10-28T10:41:51.694Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ArrearsController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\ArrearsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ArrearsController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\ArrearsController.cs",
-              "RelativeToolTip": "Controllers\\ArrearsController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowAcAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:27:16.79Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BillingController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\BillingController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BillingController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\BillingController.cs",
-              "RelativeToolTip": "Controllers\\BillingController.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAswEsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:27:16.806Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "MeterReadingController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\MeterReadingController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\MeterReadingController.cs",
               "RelativeDocumentMoniker": "Controllers\\MeterReadingController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\MeterReadingController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\MeterReadingController.cs",
               "RelativeToolTip": "Controllers\\MeterReadingController.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAwwEcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -215,23 +194,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "AddressController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\AddressController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\AddressController.cs",
               "RelativeDocumentMoniker": "Controllers\\AddressController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\AddressController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\AddressController.cs",
               "RelativeToolTip": "Controllers\\AddressController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:27:16.811Z"
+              "WhenOpened": "2025-10-28T09:27:16.811Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "TariffSlabController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TariffSlabController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TariffSlabController.cs",
               "RelativeDocumentMoniker": "Controllers\\TariffSlabController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TariffSlabController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TariffSlabController.cs",
               "RelativeToolTip": "Controllers\\TariffSlabController.cs",
               "ViewState": "AgIAAEoAAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -239,11 +219,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "TodRuleController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TodRuleController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TodRuleController.cs",
               "RelativeDocumentMoniker": "Controllers\\TodRuleController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TodRuleController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TodRuleController.cs",
               "RelativeToolTip": "Controllers\\TodRuleController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -251,11 +231,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "SmartMeter.csproj",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
+              "RelativeDocumentMoniker": "SmartMeter.csproj",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
+              "RelativeToolTip": "SmartMeter.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-28T09:27:16.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BillingController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\BillingController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BillingController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\BillingController.cs",
+              "RelativeToolTip": "Controllers\\BillingController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAswEsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T09:27:16.806Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "TariffController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TariffController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TariffController.cs",
               "RelativeDocumentMoniker": "Controllers\\TariffController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\TariffController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\TariffController.cs",
               "RelativeToolTip": "Controllers\\TariffController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -263,11 +268,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
+              "Title": "ArrearsController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\ArrearsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ArrearsController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\ArrearsController.cs",
+              "RelativeToolTip": "Controllers\\ArrearsController.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowAcAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T09:27:16.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "OrgUnitController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\OrgUnitController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\OrgUnitController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrgUnitController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\OrgUnitController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\OrgUnitController.cs",
               "RelativeToolTip": "Controllers\\OrgUnitController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -275,11 +292,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAACAAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-28T09:27:16.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SmartMeter",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
+              "RelativeDocumentMoniker": "SmartMeter.csproj",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
+              "RelativeToolTip": "SmartMeter.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-28T09:27:49.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Address.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Address.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Address.cs",
               "RelativeDocumentMoniker": "Models\\Address.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Address.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Address.cs",
               "RelativeToolTip": "Models\\Address.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAA7wCcAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -287,11 +329,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 13,
               "Title": "Meter.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Meter.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Meter.cs",
               "RelativeDocumentMoniker": "Models\\Meter.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Meter.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Meter.cs",
               "RelativeToolTip": "Models\\Meter.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAowCUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -299,11 +341,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 14,
               "Title": "MeterController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\MeterController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\MeterController.cs",
               "RelativeDocumentMoniker": "Controllers\\MeterController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\MeterController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\MeterController.cs",
               "RelativeToolTip": "Controllers\\MeterController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -311,11 +353,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "Billing.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Billing.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Billing.cs",
               "RelativeDocumentMoniker": "Models\\Billing.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Billing.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Billing.cs",
               "RelativeToolTip": "Models\\Billing.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAA4wD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -323,11 +365,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Arrears.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Arrears.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Arrears.cs",
               "RelativeDocumentMoniker": "Models\\Arrears.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Arrears.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Arrears.cs",
               "RelativeToolTip": "Models\\Arrears.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAkwCQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -335,11 +377,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "JwtHelper.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Helpers\\JwtHelper.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Helpers\\JwtHelper.cs",
               "RelativeDocumentMoniker": "Helpers\\JwtHelper.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Helpers\\JwtHelper.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Helpers\\JwtHelper.cs",
               "RelativeToolTip": "Helpers\\JwtHelper.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAkwC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -347,11 +389,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "OrgUnit.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\OrgUnit.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\OrgUnit.cs",
               "RelativeDocumentMoniker": "Models\\OrgUnit.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\OrgUnit.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\OrgUnit.cs",
               "RelativeToolTip": "Models\\OrgUnit.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAzwAoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -359,11 +401,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Data\\ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAmwCAAAABaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -371,11 +413,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 20,
               "Title": "MeterReading.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\MeterReading.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\MeterReading.cs",
               "RelativeDocumentMoniker": "Models\\MeterReading.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\MeterReading.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\MeterReading.cs",
               "RelativeToolTip": "Models\\MeterReading.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -383,11 +425,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 21,
               "Title": "Consumer.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Consumer.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Consumer.cs",
               "RelativeDocumentMoniker": "Models\\Consumer.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Consumer.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Consumer.cs",
               "RelativeToolTip": "Models\\Consumer.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAUwC8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -395,11 +437,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 22,
               "Title": "20251028055542_FinalDateTimeFix.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028055542_FinalDateTimeFix.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028055542_FinalDateTimeFix.cs",
               "RelativeDocumentMoniker": "Migrations\\20251028055542_FinalDateTimeFix.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028055542_FinalDateTimeFix.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028055542_FinalDateTimeFix.cs",
               "RelativeToolTip": "Migrations\\20251028055542_FinalDateTimeFix.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -407,11 +449,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -419,11 +461,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\appsettings.json",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAIAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -431,11 +473,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Services\\AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Services\\AuthService.cs",
               "RelativeToolTip": "Services\\AuthService.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAiwEAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -443,23 +485,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAkwGsAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-28T09:27:16.847Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "20251028052244_FixDateTimeColumns.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028052244_FixDateTimeColumns.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028052244_FixDateTimeColumns.cs",
               "RelativeDocumentMoniker": "Migrations\\20251028052244_FixDateTimeColumns.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028052244_FixDateTimeColumns.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028052244_FixDateTimeColumns.cs",
               "RelativeToolTip": "Migrations\\20251028052244_FixDateTimeColumns.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -467,11 +497,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 27,
               "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Services\\IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "Services\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Services\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Services\\IAuthService.cs",
               "RelativeToolTip": "Services\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -479,11 +509,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "ConsumerController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\ConsumerController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\ConsumerController.cs",
               "RelativeDocumentMoniker": "Controllers\\ConsumerController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\ConsumerController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\ConsumerController.cs",
               "RelativeToolTip": "Controllers\\ConsumerController.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAswAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -491,11 +521,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 29,
               "Title": "20251028050107_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028050107_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028050107_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20251028050107_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Migrations\\20251028050107_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Migrations\\20251028050107_InitialCreate.cs",
               "RelativeToolTip": "Migrations\\20251028050107_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -503,11 +533,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAgwAoAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -515,11 +545,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "UserDto.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\UserDto.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\UserDto.cs",
               "RelativeDocumentMoniker": "DTOs\\UserDto.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\UserDto.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\UserDto.cs",
               "RelativeToolTip": "DTOs\\UserDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -527,11 +557,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\LoginDto.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\LoginDto.cs",
               "RelativeDocumentMoniker": "DTOs\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\LoginDto.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\LoginDto.cs",
               "RelativeToolTip": "DTOs\\LoginDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -539,11 +569,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "AuthResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\AuthResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\AuthResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\AuthResponseDto.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\DTOs\\AuthResponseDto.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\DTOs\\AuthResponseDto.cs",
               "RelativeToolTip": "DTOs\\AuthResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -551,11 +581,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "TodRule.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\TodRule.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\TodRule.cs",
               "RelativeDocumentMoniker": "Models\\TodRule.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\TodRule.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\TodRule.cs",
               "RelativeToolTip": "Models\\TodRule.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -563,11 +593,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 35,
               "Title": "TariffSlab.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\TariffSlab.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\TariffSlab.cs",
               "RelativeDocumentMoniker": "Models\\TariffSlab.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\TariffSlab.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\TariffSlab.cs",
               "RelativeToolTip": "Models\\TariffSlab.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -575,27 +605,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 36,
               "Title": "Tariff.cs",
-              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Tariff.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Tariff.cs",
               "RelativeDocumentMoniker": "Models\\Tariff.cs",
-              "ToolTip": "C:\\Users\\user\\source\\repos\\SmartRepo\\SmartMeter\\Models\\Tariff.cs",
+              "ToolTip": "C:\\Users\\PC\\.vscode\\Repos\\SmartRepo\\SmartMeter\\Models\\Tariff.cs",
               "RelativeToolTip": "Models\\Tariff.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAowAQAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T09:27:16.868Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "SmartMeter.csproj",
-              "DocumentMoniker": "C:\\Users\\user\\Source\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
-              "RelativeDocumentMoniker": "SmartMeter.csproj",
-              "ToolTip": "C:\\Users\\user\\Source\\Repos\\SmartRepo\\SmartMeter\\SmartMeter.csproj",
-              "RelativeToolTip": "SmartMeter.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-28T09:27:16.871Z"
             }
           ]
         }
