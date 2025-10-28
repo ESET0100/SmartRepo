@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SmartMeter.DTOs;
 using SmartMeter.Services;
-using SmartMeter.DTOs;
-using SmartMeter.Services;
 
 namespace SmartMeter.Controllers
 {

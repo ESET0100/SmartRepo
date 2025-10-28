@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartMeter.Models;
-using SmartMeter.Models;
 
 namespace SmartMeter.Data
 {
@@ -39,8 +38,9 @@ namespace SmartMeter.Data
                 entity.HasKey(e => e.OrgUnitId);
 
                 // Check constraint for Type
-                entity.HasCheckConstraint("CHK_OrgUnit_Type",
-                    @"""Type"" IN ('Zone','Substation','Feeder','DTR')");
+                entity.ToTable(t =>
+                    t.HasCheckConstraint("CHK_OrgUnit_Type",
+                        @"""Type"" IN ('Zone','Substation','Feeder','DTR')"));
 
                 // Self-referencing relationship
                 entity.HasOne(e => e.Parent)
@@ -59,10 +59,13 @@ namespace SmartMeter.Data
                 entity.HasKey(e => e.TariffId);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_Tariff_EffectiveDates",
-                    @"""EffectiveTo"" IS NULL OR ""EffectiveTo"" > ""EffectiveFrom""");
-                entity.HasCheckConstraint("CHK_Tariff_BaseRate_Positive",
-                    @"""BaseRate"" > 0");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_Tariff_EffectiveDates",
+                        @"""EffectiveTo"" IS NULL OR ""EffectiveTo"" > ""EffectiveFrom""");
+                    t.HasCheckConstraint("CHK_Tariff_BaseRate_Positive",
+                        @"""BaseRate"" > 0");
+                });
             });
 
             // TodRule configuration
@@ -77,10 +80,13 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Cascade);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_TodRule_TimeRange",
-                    @"""EndTime"" > ""StartTime""");
-                entity.HasCheckConstraint("CHK_TodRule_Rate_NonNegative",
-                    @"""RatePerKwh"" >= 0");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_TodRule_TimeRange",
+                        @"""EndTime"" > ""StartTime""");
+                    t.HasCheckConstraint("CHK_TodRule_Rate_NonNegative",
+                        @"""RatePerKwh"" >= 0");
+                });
 
                 entity.Property(e => e.Deleted).HasDefaultValue(false);
             });
@@ -97,10 +103,13 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Cascade);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_TariffSlab_Range",
-                    @"""FromKwh"" >= 0 AND ""ToKwh"" > ""FromKwh""");
-                entity.HasCheckConstraint("CHK_TariffSlab_Rate_Positive",
-                    @"""RatePerKwh"" > 0");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_TariffSlab_Range",
+                        @"""FromKwh"" >= 0 AND ""ToKwh"" > ""FromKwh""");
+                    t.HasCheckConstraint("CHK_TariffSlab_Rate_Positive",
+                        @"""RatePerKwh"" > 0");
+                });
 
                 entity.Property(e => e.Deleted).HasDefaultValue(false);
             });
@@ -122,10 +131,13 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Restrict);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_Consumer_Status",
-                    @"""Status"" IN ('Active','Inactive')");
-                entity.HasCheckConstraint("CHK_Consumer_UpdatedAfterCreated",
-                    @"""UpdatedAt"" IS NULL OR ""UpdatedAt"" >= ""CreatedAt""");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_Consumer_Status",
+                        @"""Status"" IN ('Active','Inactive')");
+                    t.HasCheckConstraint("CHK_Consumer_UpdatedAfterCreated",
+                        @"""UpdatedAt"" IS NULL OR ""UpdatedAt"" >= ""CreatedAt""");
+                });
 
                 entity.Property(e => e.Status).HasDefaultValue("Active");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
@@ -163,8 +175,9 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Restrict);
 
                 // Check constraint
-                entity.HasCheckConstraint("CHK_Meter_Status",
-                    @"""Status"" IN ('Active','Inactive','Decommissioned')");
+                entity.ToTable(t =>
+                    t.HasCheckConstraint("CHK_Meter_Status",
+                        @"""Status"" IN ('Active','Inactive','Decommissioned')"));
 
                 entity.Property(e => e.Status).HasDefaultValue("Active");
             });
@@ -181,8 +194,9 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Cascade);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_MeterReading_EnergyConsumed_Positive",
-                    @"""EnergyConsumed"" >= 0");
+                entity.ToTable(t =>
+                    t.HasCheckConstraint("CHK_MeterReading_EnergyConsumed_Positive",
+                        @"""EnergyConsumed"" >= 0"));
             });
 
             // Billing configuration
@@ -202,16 +216,19 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Cascade);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_Billing_Period",
-                    @"""BillingPeriodEnd"" > ""BillingPeriodStart""");
-                entity.HasCheckConstraint("CHK_DueDate_After_End",
-                    @"""DueDate"" >= ""BillingPeriodEnd""");
-                entity.HasCheckConstraint("CHK_BaseAmount_Positive",
-                    @"""BaseAmount"" >= 0");
-                entity.HasCheckConstraint("CHK_TaxAmount_Positive",
-                    @"""TaxAmount"" >= 0");
-                entity.HasCheckConstraint("CHK_Billing_PaymentStatus",
-                    @"""PaymentStatus"" IN ('Unpaid', 'Paid', 'Overdue', 'Cancelled')");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_Billing_Period",
+                        @"""BillingPeriodEnd"" > ""BillingPeriodStart""");
+                    t.HasCheckConstraint("CHK_DueDate_After_End",
+                        @"""DueDate"" >= ""BillingPeriodEnd""");
+                    t.HasCheckConstraint("CHK_BaseAmount_Positive",
+                        @"""BaseAmount"" >= 0");
+                    t.HasCheckConstraint("CHK_TaxAmount_Positive",
+                        @"""TaxAmount"" >= 0");
+                    t.HasCheckConstraint("CHK_Billing_PaymentStatus",
+                        @"""PaymentStatus"" IN ('Unpaid', 'Paid', 'Overdue', 'Cancelled')");
+                });
 
                 // Computed column
                 entity.Property(e => e.TotalAmount)
@@ -246,12 +263,15 @@ namespace SmartMeter.Data
                       .OnDelete(DeleteBehavior.Cascade);
 
                 // Check constraints
-                entity.HasCheckConstraint("CHK_Arrears_ArrearType",
-                    @"""ArrearType"" IN ('interest', 'penalty', 'overdue')");
-                entity.HasCheckConstraint("CHK_Arrears_PaidStatus",
-                    @"""PaidStatus"" IN ('Pending', 'Paid', 'Partial')");
-                entity.HasCheckConstraint("CHK_Arrears_Amount_Positive",
-                    @"""ArrearAmount"" >= 0");
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_Arrears_ArrearType",
+                        @"""ArrearType"" IN ('interest', 'penalty', 'overdue')");
+                    t.HasCheckConstraint("CHK_Arrears_PaidStatus",
+                        @"""PaidStatus"" IN ('Pending', 'Paid', 'Partial')");
+                    t.HasCheckConstraint("CHK_Arrears_Amount_Positive",
+                        @"""ArrearAmount"" >= 0");
+                });
 
                 entity.Property(e => e.PaidStatus).HasDefaultValue("Pending");
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("NOW()");

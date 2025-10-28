@@ -1,7 +1,5 @@
 ﻿using SmartMeter.DTOs;
 using SmartMeter.Models;
-using SmartMeter.DTOs;
-using SmartMeter.Models;
 
 namespace SmartMeter.Services
 {
