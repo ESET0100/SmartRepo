@@ -2,8 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.Models;
-using SmartMeter.Data;
-using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
 {

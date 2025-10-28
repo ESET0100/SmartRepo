@@ -1,6 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using SmartMeter.Models;
-using SmartMeter.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
