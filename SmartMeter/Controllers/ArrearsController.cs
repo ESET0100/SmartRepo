@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -38,24 +39,53 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Arrears>> PostArrears(Arrears arrears)
+        public async Task<ActionResult<Arrears>> PostArrears(ArrearsDto arrearsDto)
         {
+            var arrears = new Arrears
+            {
+                ConsumerId = arrearsDto.ConsumerId,
+                ArrearType = arrearsDto.ArrearType,
+                PaidStatus = arrearsDto.PaidStatus,
+                BillId = arrearsDto.BillId,
+                ArrearAmount = arrearsDto.ArrearAmount,
+                CreatedAt = DateTime.UtcNow
+            };
+
             _context.Arrears.Add(arrears);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetArrears), new { id = arrears.ArrearId }, arrears);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutArrears(long id, Arrears arrears)
+        public async Task<IActionResult> PutArrears(long id, ArrearsDto arrearsDto)
         {
-            if (id != arrears.ArrearId) return BadRequest();
-            _context.Entry(arrears).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); }
+            if (arrearsDto.ArrearId.HasValue && id != arrearsDto.ArrearId.Value)
+                return BadRequest("ID mismatch");
+
+            var existingArrears = await _context.Arrears.FindAsync(id);
+            if (existingArrears == null)
+                return NotFound();
+
+            // Update fields
+            existingArrears.ConsumerId = arrearsDto.ConsumerId;
+            existingArrears.ArrearType = arrearsDto.ArrearType;
+            existingArrears.PaidStatus = arrearsDto.PaidStatus;
+            existingArrears.BillId = arrearsDto.BillId;
+            existingArrears.ArrearAmount = arrearsDto.ArrearAmount;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ArrearsExists(id)) return NotFound();
-                else throw;
+                if (!ArrearsExists(id))
+                    return NotFound();
+                else
+                    throw;
             }
+
             return NoContent();
         }
 

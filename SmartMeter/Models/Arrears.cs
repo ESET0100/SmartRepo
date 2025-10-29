@@ -1,6 +1,6 @@
-﻿using SmartMeter.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -11,9 +11,11 @@ namespace SmartMeter.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long ArrearId { get; set; }
 
+        [Required]
         public long ConsumerId { get; set; }
 
         [ForeignKey("ConsumerId")]
+        [JsonIgnore]
         public virtual Consumer Consumer { get; set; } = null!;
 
         [Required]
@@ -24,9 +26,11 @@ namespace SmartMeter.Models
         [Column(TypeName = "varchar(20)")]
         public string PaidStatus { get; set; } = "Pending";
 
+        [Required]
         public long BillId { get; set; }
 
         [ForeignKey("BillId")]
+        [JsonIgnore]
         public virtual Billing Billing { get; set; } = null!;
 
         [Required]

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -22,6 +23,7 @@ namespace SmartMeter.Models
         public string MeterSerialNo { get; set; } = string.Empty;
 
         [ForeignKey("MeterSerialNo")]
+        [JsonIgnore]
         public virtual Meter Meter { get; set; } = null!;
 
         [Column(TypeName = "decimal(8,3)")]

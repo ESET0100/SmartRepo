@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -36,24 +37,52 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MeterReading>> PostMeterReading(MeterReading meterReading)
+        public async Task<ActionResult<MeterReading>> PostMeterReading(MeterReadingDto meterReadingDto)
         {
+            var meterReading = new MeterReading
+            {
+                ReadingDate = meterReadingDto.ReadingDate,
+                EnergyConsumed = meterReadingDto.EnergyConsumed,
+                MeterSerialNo = meterReadingDto.MeterSerialNo,
+                Current = meterReadingDto.Current,
+                Voltage = meterReadingDto.Voltage
+            };
+
             _context.MeterReadings.Add(meterReading);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetMeterReading), new { id = meterReading.ReadingId }, meterReading);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMeterReading(long id, MeterReading meterReading)
+        public async Task<IActionResult> PutMeterReading(long id, MeterReadingDto meterReadingDto)
         {
-            if (id != meterReading.ReadingId) return BadRequest();
-            _context.Entry(meterReading).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); }
+            if (meterReadingDto.ReadingId.HasValue && id != meterReadingDto.ReadingId.Value)
+                return BadRequest("ID mismatch");
+
+            var existingMeterReading = await _context.MeterReadings.FindAsync(id);
+            if (existingMeterReading == null)
+                return NotFound();
+
+            // Update fields
+            existingMeterReading.ReadingDate = meterReadingDto.ReadingDate;
+            existingMeterReading.EnergyConsumed = meterReadingDto.EnergyConsumed;
+            existingMeterReading.MeterSerialNo = meterReadingDto.MeterSerialNo;
+            existingMeterReading.Current = meterReadingDto.Current;
+            existingMeterReading.Voltage = meterReadingDto.Voltage;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MeterReadingExists(id)) return NotFound();
-                else throw;
+                if (!MeterReadingExists(id))
+                    return NotFound();
+                else
+                    throw;
             }
+
             return NoContent();
         }
 

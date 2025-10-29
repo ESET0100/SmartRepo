@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -10,9 +11,11 @@ namespace SmartMeter.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TodRuleId { get; set; }
 
+        [Required]
         public int TariffId { get; set; }
 
         [ForeignKey("TariffId")]
+        [JsonIgnore]
         public virtual Tariff Tariff { get; set; } = null!;
 
         [Required]
