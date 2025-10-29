@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -46,10 +47,19 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Consumer>> PostConsumer(Consumer consumer)
+        public async Task<ActionResult<Consumer>> PostConsumer(ConsumerDto consumerDto)
         {
-            consumer.CreatedAt = DateTime.UtcNow;
-            consumer.CreatedBy = User.Identity?.Name ?? "system";
+            var consumer = new Consumer
+            {
+                Name = consumerDto.Name,
+                Phone = consumerDto.Phone,
+                Email = consumerDto.Email,
+                OrgUnitId = consumerDto.OrgUnitId,
+                TariffId = consumerDto.TariffId,
+                Status = consumerDto.Status,
+                CreatedAt = DateTime.UtcNow,
+                CreatedBy = User.Identity?.Name ?? "system"
+            };
 
             _context.Consumers.Add(consumer);
             await _context.SaveChangesAsync();
@@ -58,17 +68,24 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutConsumer(long id, Consumer consumer)
+        public async Task<IActionResult> PutConsumer(long id, ConsumerDto consumerDto)
         {
-            if (id != consumer.ConsumerId)
-            {
-                return BadRequest();
-            }
+            if (consumerDto.ConsumerId.HasValue && id != consumerDto.ConsumerId.Value)
+                return BadRequest("ID mismatch");
 
-            consumer.UpdatedAt = DateTime.UtcNow;
-            consumer.UpdatedBy = User.Identity?.Name ?? "system";
+            var existingConsumer = await _context.Consumers.FindAsync(id);
+            if (existingConsumer == null)
+                return NotFound();
 
-            _context.Entry(consumer).State = EntityState.Modified;
+            // Update fields
+            existingConsumer.Name = consumerDto.Name;
+            existingConsumer.Phone = consumerDto.Phone;
+            existingConsumer.Email = consumerDto.Email;
+            existingConsumer.OrgUnitId = consumerDto.OrgUnitId;
+            existingConsumer.TariffId = consumerDto.TariffId;
+            existingConsumer.Status = consumerDto.Status;
+            existingConsumer.UpdatedAt = DateTime.UtcNow;
+            existingConsumer.UpdatedBy = User.Identity?.Name ?? "system";
 
             try
             {
@@ -77,13 +94,9 @@ namespace SmartMeter.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!ConsumerExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return NoContent();

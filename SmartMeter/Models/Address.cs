@@ -1,6 +1,6 @@
-﻿using SmartMeter.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -31,13 +31,14 @@ namespace SmartMeter.Models
         [Column(TypeName = "varchar(10)")]
         public string Pincode { get; set; } = string.Empty;
 
+        [Required]
         public long ConsumerId { get; set; }
 
         [ForeignKey("ConsumerId")]
+        [JsonIgnore]
         public virtual Consumer Consumer { get; set; } = null!;
 
         [Column(TypeName = "timestamp with time zone")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-        //shiavsuh
     }
 }

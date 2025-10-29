@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -36,24 +37,55 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Address>> PostAddress(Address address)
+        public async Task<ActionResult<Address>> PostAddress(AddressDto addressDto)
         {
+            var address = new Address
+            {
+                HouseNumber = addressDto.HouseNumber,
+                Locality = addressDto.Locality,
+                City = addressDto.City,
+                State = addressDto.State,
+                Pincode = addressDto.Pincode,
+                ConsumerId = addressDto.ConsumerId,
+                CreatedAt = DateTime.UtcNow
+            };
+
             _context.Addresses.Add(address);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetAddress), new { id = address.AddressId }, address);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAddress(long id, Address address)
+        public async Task<IActionResult> PutAddress(long id, AddressDto addressDto)
         {
-            if (id != address.AddressId) return BadRequest();
-            _context.Entry(address).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); }
+            if (addressDto.AddressId.HasValue && id != addressDto.AddressId.Value)
+                return BadRequest("ID mismatch");
+
+            var existingAddress = await _context.Addresses.FindAsync(id);
+            if (existingAddress == null)
+                return NotFound();
+
+            // Update fields
+            existingAddress.HouseNumber = addressDto.HouseNumber;
+            existingAddress.Locality = addressDto.Locality;
+            existingAddress.City = addressDto.City;
+            existingAddress.State = addressDto.State;
+            existingAddress.Pincode = addressDto.Pincode;
+            existingAddress.ConsumerId = addressDto.ConsumerId;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AddressExists(id)) return NotFound();
-                else throw;
+                if (!AddressExists(id))
+                    return NotFound();
+                else
+                    throw;
             }
+
             return NoContent();
         }
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -37,24 +38,50 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<TariffSlab>> PostTariffSlab(TariffSlab tariffSlab)
+        public async Task<ActionResult<TariffSlab>> PostTariffSlab(TariffSlabDto tariffSlabDto)
         {
+            var tariffSlab = new TariffSlab
+            {
+                TariffId = tariffSlabDto.TariffId,
+                FromKwh = tariffSlabDto.FromKwh,
+                ToKwh = tariffSlabDto.ToKwh,
+                RatePerKwh = tariffSlabDto.RatePerKwh
+            };
+
             _context.TariffSlabs.Add(tariffSlab);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetTariffSlab), new { id = tariffSlab.TariffSlabId }, tariffSlab);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTariffSlab(int id, TariffSlab tariffSlab)
+        public async Task<IActionResult> PutTariffSlab(int id, TariffSlabDto tariffSlabDto)
         {
-            if (id != tariffSlab.TariffSlabId) return BadRequest();
-            _context.Entry(tariffSlab).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); }
+            if (tariffSlabDto.TariffSlabId.HasValue && id != tariffSlabDto.TariffSlabId.Value)
+                return BadRequest("ID mismatch");
+
+            var existingTariffSlab = await _context.TariffSlabs.FindAsync(id);
+            if (existingTariffSlab == null)
+                return NotFound();
+
+            // Update fields
+            existingTariffSlab.TariffId = tariffSlabDto.TariffId;
+            existingTariffSlab.FromKwh = tariffSlabDto.FromKwh;
+            existingTariffSlab.ToKwh = tariffSlabDto.ToKwh;
+            existingTariffSlab.RatePerKwh = tariffSlabDto.RatePerKwh;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TariffSlabExists(id)) return NotFound();
-                else throw;
+                if (!TariffSlabExists(id))
+                    return NotFound();
+                else
+                    throw;
             }
+
             return NoContent();
         }
 

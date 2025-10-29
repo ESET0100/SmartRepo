@@ -1,6 +1,6 @@
-﻿using SmartMeter.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -11,9 +11,11 @@ namespace SmartMeter.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long BillId { get; set; }
 
+        [Required]
         public long ConsumerId { get; set; }
 
         [ForeignKey("ConsumerId")]
+        [JsonIgnore]
         public virtual Consumer Consumer { get; set; } = null!;
 
         [Required]
@@ -21,6 +23,7 @@ namespace SmartMeter.Models
         public string MeterId { get; set; } = string.Empty;
 
         [ForeignKey("MeterId")]
+        [JsonIgnore]
         public virtual Meter Meter { get; set; } = null!;
 
         [Required]
@@ -61,7 +64,7 @@ namespace SmartMeter.Models
         [Column(TypeName = "timestamp with time zone")]
         public DateTime? DisconnectionDate { get; set; }
 
-
+        [JsonIgnore]
         public virtual ICollection<Arrears> Arrears { get; set; } = new List<Arrears>();
     }
 }

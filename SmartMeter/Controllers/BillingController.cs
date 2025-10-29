@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -40,24 +41,61 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Billing>> PostBilling(Billing billing)
+        public async Task<ActionResult<Billing>> PostBilling(BillingDto billingDto)
         {
+            var billing = new Billing
+            {
+                ConsumerId = billingDto.ConsumerId,
+                MeterId = billingDto.MeterId,
+                BillingPeriodStart = billingDto.BillingPeriodStart,
+                BillingPeriodEnd = billingDto.BillingPeriodEnd,
+                TotalUnitsConsumed = billingDto.TotalUnitsConsumed,
+                BaseAmount = billingDto.BaseAmount,
+                TaxAmount = billingDto.TaxAmount,
+                DueDate = billingDto.DueDate,
+                GeneratedAt = DateTime.UtcNow
+            };
+
             _context.Billings.Add(billing);
             await _context.SaveChangesAsync();
+
             return CreatedAtAction(nameof(GetBilling), new { id = billing.BillId }, billing);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBilling(long id, Billing billing)
+        public async Task<IActionResult> PutBilling(long id, BillingDto billingDto)
         {
-            if (id != billing.BillId) return BadRequest();
-            _context.Entry(billing).State = EntityState.Modified;
-            try { await _context.SaveChangesAsync(); }
+            if (billingDto.BillId.HasValue && id != billingDto.BillId.Value)
+                return BadRequest("ID mismatch");
+
+            var existingBilling = await _context.Billings.FindAsync(id);
+            if (existingBilling == null)
+                return NotFound();
+
+            // Update fields
+            existingBilling.ConsumerId = billingDto.ConsumerId;
+            existingBilling.MeterId = billingDto.MeterId;
+            existingBilling.BillingPeriodStart = billingDto.BillingPeriodStart;
+            existingBilling.BillingPeriodEnd = billingDto.BillingPeriodEnd;
+            existingBilling.TotalUnitsConsumed = billingDto.TotalUnitsConsumed;
+            existingBilling.BaseAmount = billingDto.BaseAmount;
+            existingBilling.TaxAmount = billingDto.TaxAmount;
+            existingBilling.DueDate = billingDto.DueDate;
+            existingBilling.PaymentStatus = billingDto.PaymentStatus;
+            existingBilling.PaidDate = billingDto.PaidDate;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BillingExists(id)) return NotFound();
-                else throw;
+                if (!BillingExists(id))
+                    return NotFound();
+                else
+                    throw;
             }
+
             return NoContent();
         }
 
