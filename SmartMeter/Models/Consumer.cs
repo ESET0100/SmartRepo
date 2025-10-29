@@ -1,8 +1,6 @@
-﻿using SmartMeter.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.Metrics;
-using System.Net;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -23,14 +21,18 @@ namespace SmartMeter.Models
         [Column(TypeName = "varchar(200)")]
         public string? Email { get; set; }
 
+        [Required]
         public int OrgUnitId { get; set; }
 
         [ForeignKey("OrgUnitId")]
+        [JsonIgnore]
         public virtual OrgUnit OrgUnit { get; set; } = null!;
 
+        [Required]
         public int TariffId { get; set; }
 
         [ForeignKey("TariffId")]
+        [JsonIgnore]
         public virtual Tariff Tariff { get; set; } = null!;
 
         [Required]
@@ -52,8 +54,13 @@ namespace SmartMeter.Models
 
         public bool Deleted { get; set; } = false;
 
+        [JsonIgnore]
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
+
+        [JsonIgnore]
         public virtual ICollection<Meter> Meters { get; set; } = new List<Meter>();
+
+        [JsonIgnore]
         public virtual ICollection<Billing> Billings { get; set; } = new List<Billing>();
     }
 }

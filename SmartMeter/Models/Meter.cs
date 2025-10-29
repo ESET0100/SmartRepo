@@ -1,6 +1,6 @@
-﻿using SmartMeter.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace SmartMeter.Models
 {
@@ -41,12 +41,17 @@ namespace SmartMeter.Models
         [Column(TypeName = "varchar(20)")]
         public string Status { get; set; } = "Active";
 
+        [Required]
         public long ConsumerId { get; set; }
 
         [ForeignKey("ConsumerId")]
+        [JsonIgnore]
         public virtual Consumer Consumer { get; set; } = null!;
 
+        [JsonIgnore]
         public virtual ICollection<MeterReading> MeterReadings { get; set; } = new List<MeterReading>();
+
+        [JsonIgnore]
         public virtual ICollection<Billing> Billings { get; set; } = new List<Billing>();
     }
 }

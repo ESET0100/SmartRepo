@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using SmartMeter.DTOs;
 using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
@@ -40,8 +41,22 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Meter>> PostMeter(Meter meter)
+        public async Task<ActionResult<Meter>> PostMeter(MeterDto meterDto)
         {
+            var meter = new Meter
+            {
+                MeterSerialNo = meterDto.MeterSerialNo,
+                IpAddress = meterDto.IpAddress,
+                ICCID = meterDto.ICCID,
+                IMSI = meterDto.IMSI,
+                Manufacturer = meterDto.Manufacturer,
+                Firmware = meterDto.Firmware,
+                Category = meterDto.Category,
+                InstallTsUtc = meterDto.InstallTsUtc,
+                Status = meterDto.Status,
+                ConsumerId = meterDto.ConsumerId
+            };
+
             _context.Meters.Add(meter);
             await _context.SaveChangesAsync();
 
@@ -49,14 +64,26 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMeter(string id, Meter meter)
+        public async Task<IActionResult> PutMeter(string id, MeterDto meterDto)
         {
-            if (id != meter.MeterSerialNo)
-            {
-                return BadRequest();
-            }
+            // For Meter, ID is string (MeterSerialNo)
+            if (!string.IsNullOrEmpty(meterDto.MeterSerialNo) && id != meterDto.MeterSerialNo)
+                return BadRequest("MeterSerialNo mismatch");
 
-            _context.Entry(meter).State = EntityState.Modified;
+            var existingMeter = await _context.Meters.FindAsync(id);
+            if (existingMeter == null)
+                return NotFound();
+
+            // Update fields
+            existingMeter.IpAddress = meterDto.IpAddress;
+            existingMeter.ICCID = meterDto.ICCID;
+            existingMeter.IMSI = meterDto.IMSI;
+            existingMeter.Manufacturer = meterDto.Manufacturer;
+            existingMeter.Firmware = meterDto.Firmware;
+            existingMeter.Category = meterDto.Category;
+            existingMeter.InstallTsUtc = meterDto.InstallTsUtc;
+            existingMeter.Status = meterDto.Status;
+            existingMeter.ConsumerId = meterDto.ConsumerId;
 
             try
             {
@@ -65,13 +92,9 @@ namespace SmartMeter.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!MeterExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return NoContent();
