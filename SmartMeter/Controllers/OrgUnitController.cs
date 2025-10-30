@@ -19,6 +19,10 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<OrgUnit>>> GetOrgUnits()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
             return await _context.OrgUnits
                 .Include(o => o.Parent)
                 .Include(o => o.Children)
@@ -28,6 +32,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<OrgUnit>> GetOrgUnit(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var orgUnit = await _context.OrgUnits
                 .Include(o => o.Parent)
                 .Include(o => o.Children)
@@ -40,6 +49,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<OrgUnit>> PostOrgUnit(OrgUnit orgUnit)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             _context.OrgUnits.Add(orgUnit);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetOrgUnit), new { id = orgUnit.OrgUnitId }, orgUnit);
@@ -48,6 +62,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrgUnit(int id, OrgUnit orgUnit)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (id != orgUnit.OrgUnitId) return BadRequest();
             _context.Entry(orgUnit).State = EntityState.Modified;
             try { await _context.SaveChangesAsync(); }
@@ -62,6 +81,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteOrgUnit(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var orgUnit = await _context.OrgUnits.FindAsync(id);
             if (orgUnit == null) return NotFound();
             _context.OrgUnits.Remove(orgUnit);

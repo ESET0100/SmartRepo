@@ -20,6 +20,11 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TodRule>>> GetTodRules()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             return await _context.TodRules
                 .Include(t => t.Tariff)
                 .Where(t => !t.Deleted)
@@ -29,6 +34,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TodRule>> GetTodRule(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var todRule = await _context.TodRules
                 .Include(t => t.Tariff)
                 .FirstOrDefaultAsync(t => t.TodRuleId == id && !t.Deleted);
@@ -40,6 +50,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<TodRule>> PostTodRule(TodRuleDto todRuleDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var todRule = new TodRule
             {
                 TariffId = todRuleDto.TariffId,
@@ -58,6 +73,12 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTodRule(int id, TodRuleDto todRuleDto)
         {
+
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             // For PUT, we can use the ID from route OR from DTO - both should match
             if (todRuleDto.TodRuleId.HasValue && id != todRuleDto.TodRuleId.Value)
                 return BadRequest("ID mismatch");
@@ -91,6 +112,10 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTodRule(int id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
             var todRule = await _context.TodRules.FindAsync(id);
             if (todRule == null) return NotFound();
 

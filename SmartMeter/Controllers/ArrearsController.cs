@@ -20,6 +20,11 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Arrears>>> GetArrears()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             return await _context.Arrears
                 .Include(a => a.Consumer)
                 .Include(a => a.Billing)
@@ -29,6 +34,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Arrears>> GetArrears(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var arrears = await _context.Arrears
                 .Include(a => a.Consumer)
                 .Include(a => a.Billing)
@@ -41,6 +51,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<Arrears>> PostArrears(ArrearsDto arrearsDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var arrears = new Arrears
             {
                 ConsumerId = arrearsDto.ConsumerId,
@@ -60,6 +75,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArrears(long id, ArrearsDto arrearsDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (arrearsDto.ArrearId.HasValue && id != arrearsDto.ArrearId.Value)
                 return BadRequest("ID mismatch");
 
@@ -92,6 +112,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArrears(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var arrears = await _context.Arrears.FindAsync(id);
             if (arrears == null) return NotFound();
             _context.Arrears.Remove(arrears);
