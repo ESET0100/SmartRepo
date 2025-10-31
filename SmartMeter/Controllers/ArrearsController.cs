@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,6 +19,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<Arrears>>> GetArrears()
         {
             if (!User.Identity.IsAuthenticated)
@@ -31,6 +33,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Arrears>> GetArrears(long id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -48,6 +51,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Arrears>> PostArrears(ArrearsDto arrearsDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -72,6 +76,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutArrears(long id, ArrearsDto arrearsDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -109,6 +114,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteArrears(long id)
         {
             if (!User.Identity.IsAuthenticated)

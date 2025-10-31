@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.Models;
@@ -17,6 +18,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<OrgUnit>>> GetOrgUnits()
         {
             if (!User.Identity.IsAuthenticated)
@@ -31,6 +33,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<OrgUnit>> GetOrgUnit(int id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -48,6 +51,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<OrgUnit>> PostOrgUnit(OrgUnit orgUnit)
         {
             if (!User.Identity.IsAuthenticated)
@@ -61,6 +65,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutOrgUnit(int id, OrgUnit orgUnit)
         {
             if (!User.Identity.IsAuthenticated)
@@ -80,6 +85,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteOrgUnit(int id)
         {
             if (!User.Identity.IsAuthenticated)

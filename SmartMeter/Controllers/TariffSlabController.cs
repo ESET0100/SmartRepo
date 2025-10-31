@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,13 +19,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<IEnumerable<TariffSlab>>> GetTariffSlabs()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             return await _context.TariffSlabs
                 .Include(t => t.Tariff)
                 .Where(t => !t.Deleted)
@@ -32,12 +29,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<TariffSlab>> GetTariffSlab(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             var tariffSlab = await _context.TariffSlabs
                 .Include(t => t.Tariff)
                 .FirstOrDefaultAsync(t => t.TariffSlabId == id && !t.Deleted);
@@ -47,12 +41,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<TariffSlab>> PostTariffSlab(TariffSlabDto tariffSlabDto)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             var tariffSlab = new TariffSlab
             {
                 TariffId = tariffSlabDto.TariffId,
@@ -68,13 +59,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutTariffSlab(int id, TariffSlabDto tariffSlabDto)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             if (tariffSlabDto.TariffSlabId.HasValue && id != tariffSlabDto.TariffSlabId.Value)
                 return BadRequest("ID mismatch");
 
@@ -82,7 +69,6 @@ namespace SmartMeter.Controllers
             if (existingTariffSlab == null)
                 return NotFound();
 
-            // Update fields
             existingTariffSlab.TariffId = tariffSlabDto.TariffId;
             existingTariffSlab.FromKwh = tariffSlabDto.FromKwh;
             existingTariffSlab.ToKwh = tariffSlabDto.ToKwh;
@@ -104,17 +90,12 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteTariffSlab(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             var tariffSlab = await _context.TariffSlabs.FindAsync(id);
             if (tariffSlab == null) return NotFound();
 
-            // Soft delete
             tariffSlab.Deleted = true;
             await _context.SaveChangesAsync();
             return NoContent();

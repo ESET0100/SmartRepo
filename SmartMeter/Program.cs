@@ -82,7 +82,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 // Add authorization
-builder.Services.AddAuthorization();
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("UserOnly", policy => policy.RequireRole("User"));
+    options.AddPolicy("ConsumerOnly", policy => policy.RequireRole("Consumer"));
+    options.AddPolicy("UserOrConsumer", policy => policy.RequireRole("User", "Consumer"));
+});
 
 // Register services
 builder.Services.AddScoped<JwtHelper>();

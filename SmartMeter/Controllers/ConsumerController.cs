@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
 using SmartMeter.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
+using SmartMeter.Services;
 using System.IO;
+using System.Security.Claims;
 
 namespace SmartMeter.Controllers
 {
@@ -15,21 +18,20 @@ namespace SmartMeter.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly IAuthService _authService;
 
-        public ConsumerController(ApplicationDbContext context, IWebHostEnvironment env)
+        public ConsumerController(ApplicationDbContext context, IWebHostEnvironment env, IAuthService authService)
         {
             _context = context;
             _env = env;
+            _authService = authService;
         }
 
+        // ONLY USERS CAN GET ALL CONSUMERS
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<Consumer>>> GetConsumers()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             return await _context.Consumers
                 .Include(c => c.OrgUnit)
                 .Include(c => c.Tariff)
@@ -38,14 +40,11 @@ namespace SmartMeter.Controllers
                 .ToListAsync();
         }
 
+        // USERS CAN GET ANY CONSUMER, CONSUMERS CAN ONLY GET THEMSELVES
         [HttpGet("{id}")]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<Consumer>> GetConsumer(long id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             var consumer = await _context.Consumers
                 .Include(c => c.OrgUnit)
                 .Include(c => c.Tariff)
@@ -58,43 +57,66 @@ namespace SmartMeter.Controllers
                 return NotFound();
             }
 
+            // Check if consumer is trying to access another consumer's data
+            if (User.IsInRole("Consumer"))
+            {
+                var consumerIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(consumerIdClaim) || !long.TryParse(consumerIdClaim, out var loggedInConsumerId) || id != loggedInConsumerId)
+                {
+                    return Forbid("You can only access your own data");
+                }
+            }
+
             return consumer;
         }
 
+        // ONLY USERS CAN CREATE CONSUMERS
         [HttpPost]
-        public async Task<ActionResult<Consumer>> PostConsumer(ConsumerDto consumerDto)
+        [Authorize(Roles = "User")]
+        public async Task<ActionResult<Consumer>> PostConsumer(CreateConsumerDto createConsumerDto)
         {
-            if (!User.Identity.IsAuthenticated)
+            // Check if consumer with email already exists
+            if (await _authService.ConsumerExistsAsync(createConsumerDto.Email))
             {
-                return Unauthorized("User is not authenticated");
+                return BadRequest("Consumer with this email already exists");
             }
+            //var username = User.FindFirst(ClaimTypes.Name)?.Value ?? "system";
+            var username = User.FindFirst("username")?.Value ?? "Lakshay";
 
             var consumer = new Consumer
             {
-                Name = consumerDto.Name,
-                Phone = consumerDto.Phone,
-                Email = consumerDto.Email,
-                OrgUnitId = consumerDto.OrgUnitId,
-                TariffId = consumerDto.TariffId,
-                Status = consumerDto.Status,
+                Name = createConsumerDto.Name,
+                Phone = createConsumerDto.Phone,
+                Email = createConsumerDto.Email, // This is not null due to validation
+                OrgUnitId = createConsumerDto.OrgUnitId,
+                TariffId = createConsumerDto.TariffId,
+                Status = createConsumerDto.Status,
                 CreatedAt = DateTime.UtcNow,
-                CreatedBy = User.Identity?.Name ?? "system"
+                // CreatedBy = User.Identity?.Name ?? "system"
+                CreatedBy = username
             };
 
-            _context.Consumers.Add(consumer);
-            await _context.SaveChangesAsync();
+            var result = await _authService.CreateConsumerWithPasswordAsync(consumer, createConsumerDto.Password);
+            if (result == null)
+                return BadRequest("Failed to create consumer");
 
-            return CreatedAtAction(nameof(GetConsumer), new { id = consumer.ConsumerId }, consumer);
+            return CreatedAtAction(nameof(GetConsumer), new { id = consumer.ConsumerId }, new ConsumerDto
+            {
+                ConsumerId = consumer.ConsumerId,
+                Name = consumer.Name,
+                Phone = consumer.Phone,
+                Email = consumer.Email,
+                OrgUnitId = consumer.OrgUnitId,
+                TariffId = consumer.TariffId,
+                Status = consumer.Status
+            });
         }
 
+        // ONLY USERS CAN UPDATE ANY CONSUMER
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutConsumer(long id, ConsumerDto consumerDto)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             if (consumerDto.ConsumerId.HasValue && id != consumerDto.ConsumerId.Value)
                 return BadRequest("ID mismatch");
 
@@ -127,14 +149,46 @@ namespace SmartMeter.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteConsumer(long id)
+        // CONSUMER SELF-UPDATE ENDPOINT
+        [HttpPut("profile")]
+        [Authorize(Roles = "Consumer")]
+        public async Task<IActionResult> UpdateConsumerProfile(ConsumerUpdateDto consumerUpdateDto)
         {
-            if (!User.Identity.IsAuthenticated)
+            var consumerIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(consumerIdClaim) || !long.TryParse(consumerIdClaim, out var consumerId))
+                return Unauthorized();
+
+            var existingConsumer = await _context.Consumers.FindAsync(consumerId);
+            if (existingConsumer == null)
+                return NotFound();
+
+            // Consumers can only update their name, phone, and email
+            existingConsumer.Name = consumerUpdateDto.Name;
+            existingConsumer.Phone = consumerUpdateDto.Phone;
+            existingConsumer.Email = consumerUpdateDto.Email;
+            existingConsumer.UpdatedAt = DateTime.UtcNow;
+            existingConsumer.UpdatedBy = "consumer-self";
+
+            try
             {
-                return Unauthorized("User is not authenticated");
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ConsumerExists(consumerId))
+                    return NotFound();
+                else
+                    throw;
             }
 
+            return NoContent();
+        }
+
+        // ONLY USERS CAN DELETE/SOFT-DELETE CONSUMERS
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
+        public async Task<IActionResult> DeleteConsumer(long id)
+        {
             var consumer = await _context.Consumers.FindAsync(id);
             if (consumer == null)
             {
@@ -143,6 +197,7 @@ namespace SmartMeter.Controllers
 
             // Soft delete
             consumer.Deleted = true;
+            consumer.Status = "Inactive";
             consumer.UpdatedAt = DateTime.UtcNow;
             consumer.UpdatedBy = User.Identity?.Name ?? "system";
 
@@ -151,12 +206,35 @@ namespace SmartMeter.Controllers
             return NoContent();
         }
 
+        // CONSUMER GET OWN PROFILE
+        [HttpGet("profile")]
+        [Authorize(Roles = "Consumer")]
+        public async Task<ActionResult<Consumer>> GetConsumerProfile()
+        {
+            var consumerIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(consumerIdClaim) || !long.TryParse(consumerIdClaim, out var consumerId))
+                return Unauthorized();
+
+            var consumer = await _context.Consumers
+                .Include(c => c.OrgUnit)
+                .Include(c => c.Tariff)
+                .Include(c => c.Addresses)
+                .FirstOrDefaultAsync(c => c.ConsumerId == consumerId && !c.Deleted);
+
+            if (consumer == null)
+                return NotFound();
+
+            return consumer;
+        }
+
         private bool ConsumerExists(long id)
         {
             return _context.Consumers.Any(e => e.ConsumerId == id && !e.Deleted);
         }
 
+        // Existing photo upload method...
         [HttpPost("{id}/photo")]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<IActionResult> UploadPhoto(long id, IFormFile photo)
         {
             var consumer = await _context.Consumers.FirstOrDefaultAsync(c => c.ConsumerId == id && !c.Deleted);
