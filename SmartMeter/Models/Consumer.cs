@@ -54,6 +54,9 @@ namespace SmartMeter.Models
 
         public bool Deleted { get; set; } = false;
 
+        [Column(TypeName = "varchar(300)")]
+        public string? PhotoUrl { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<Address> Addresses { get; set; } = new List<Address>();
 

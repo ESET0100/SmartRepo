@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
 using SmartMeter.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace SmartMeter.Controllers
 {
@@ -11,10 +14,12 @@ namespace SmartMeter.Controllers
     public class ConsumerController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _env;
 
-        public ConsumerController(ApplicationDbContext context)
+        public ConsumerController(ApplicationDbContext context, IWebHostEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         [HttpGet]
@@ -124,6 +129,43 @@ namespace SmartMeter.Controllers
         private bool ConsumerExists(long id)
         {
             return _context.Consumers.Any(e => e.ConsumerId == id && !e.Deleted);
+        }
+
+        [HttpPost("{id}/photo")]
+        public async Task<IActionResult> UploadPhoto(long id, IFormFile photo)
+        {
+            var consumer = await _context.Consumers.FirstOrDefaultAsync(c => c.ConsumerId == id && !c.Deleted);
+            if (consumer == null) return NotFound();
+
+            if (photo == null || photo.Length == 0)
+                return BadRequest("Photo file is required");
+
+            if (!photo.ContentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
+                return BadRequest("Only image files are allowed");
+
+            var uploadsRoot = _env.WebRootPath ?? Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+            var consumerUploads = Path.Combine(uploadsRoot, "uploads", "consumers");
+            Directory.CreateDirectory(consumerUploads);
+
+            var extension = Path.GetExtension(photo.FileName);
+            var safeExtension = string.IsNullOrWhiteSpace(extension) ? ".jpg" : extension;
+            var fileName = $"{id}_{Guid.NewGuid():N}{safeExtension}";
+            var filePath = Path.Combine(consumerUploads, fileName);
+
+            await using (var stream = System.IO.File.Create(filePath))
+            {
+                await photo.CopyToAsync(stream);
+            }
+
+            var baseUrl = $"{Request.Scheme}://{Request.Host}";
+            var publicUrl = $"{baseUrl}/uploads/consumers/{fileName}";
+
+            consumer.PhotoUrl = publicUrl;
+            consumer.UpdatedAt = DateTime.UtcNow;
+            consumer.UpdatedBy = User.Identity?.Name ?? "system";
+            await _context.SaveChangesAsync();
+
+            return Ok(new { photoUrl = publicUrl });
         }
     }
 }
