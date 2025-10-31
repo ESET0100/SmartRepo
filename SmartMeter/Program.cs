@@ -6,6 +6,8 @@ using System.Text;
 using SmartMeter.Data;
 using SmartMeter.Services;
 using SmartMeter.Helpers;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -99,6 +101,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Ensure upload directories exist and static files are served even if wwwroot didn't exist at build time
+var webRootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+Directory.CreateDirectory(Path.Combine(webRootPath, "uploads", "consumers"));
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(webRootPath)
+});
 
 app.UseAuthentication();
 app.UseAuthorization(); //shivansh
