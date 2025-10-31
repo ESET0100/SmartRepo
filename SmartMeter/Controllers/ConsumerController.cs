@@ -20,6 +20,11 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Consumer>>> GetConsumers()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             return await _context.Consumers
                 .Include(c => c.OrgUnit)
                 .Include(c => c.Tariff)
@@ -31,6 +36,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Consumer>> GetConsumer(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var consumer = await _context.Consumers
                 .Include(c => c.OrgUnit)
                 .Include(c => c.Tariff)
@@ -49,6 +59,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<Consumer>> PostConsumer(ConsumerDto consumerDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var consumer = new Consumer
             {
                 Name = consumerDto.Name,
@@ -70,6 +85,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutConsumer(long id, ConsumerDto consumerDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (consumerDto.ConsumerId.HasValue && id != consumerDto.ConsumerId.Value)
                 return BadRequest("ID mismatch");
 
@@ -105,6 +125,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteConsumer(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var consumer = await _context.Consumers.FindAsync(id);
             if (consumer == null)
             {

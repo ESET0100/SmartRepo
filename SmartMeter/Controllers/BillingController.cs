@@ -20,6 +20,10 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Billing>>> GetBillings()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
             return await _context.Billings
                 .Include(b => b.Consumer)
                 .Include(b => b.Meter)
@@ -30,6 +34,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Billing>> GetBilling(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var billing = await _context.Billings
                 .Include(b => b.Consumer)
                 .Include(b => b.Meter)
@@ -43,6 +52,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<Billing>> PostBilling(BillingDto billingDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var billing = new Billing
             {
                 ConsumerId = billingDto.ConsumerId,
@@ -65,6 +79,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBilling(long id, BillingDto billingDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (billingDto.BillId.HasValue && id != billingDto.BillId.Value)
                 return BadRequest("ID mismatch");
 
@@ -102,6 +121,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBilling(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var billing = await _context.Billings.FindAsync(id);
             if (billing == null) return NotFound();
             _context.Billings.Remove(billing);
