@@ -20,6 +20,11 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MeterReading>>> GetMeterReadings()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             return await _context.MeterReadings
                 .Include(m => m.Meter)
                 .ToListAsync();
@@ -28,6 +33,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<MeterReading>> GetMeterReading(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var meterReading = await _context.MeterReadings
                 .Include(m => m.Meter)
                 .FirstOrDefaultAsync(m => m.ReadingId == id);
@@ -39,6 +49,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<MeterReading>> PostMeterReading(MeterReadingDto meterReadingDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var meterReading = new MeterReading
             {
                 ReadingDate = meterReadingDto.ReadingDate,
@@ -57,6 +72,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMeterReading(long id, MeterReadingDto meterReadingDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (meterReadingDto.ReadingId.HasValue && id != meterReadingDto.ReadingId.Value)
                 return BadRequest("ID mismatch");
 
@@ -89,6 +109,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMeterReading(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var meterReading = await _context.MeterReadings.FindAsync(id);
             if (meterReading == null) return NotFound();
             _context.MeterReadings.Remove(meterReading);

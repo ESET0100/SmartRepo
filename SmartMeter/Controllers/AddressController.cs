@@ -20,6 +20,11 @@ namespace SmartMeter.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAddresses()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             return await _context.Addresses
                 .Include(a => a.Consumer)
                 .ToListAsync();
@@ -28,6 +33,11 @@ namespace SmartMeter.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Address>> GetAddress(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var address = await _context.Addresses
                 .Include(a => a.Consumer)
                 .FirstOrDefaultAsync(a => a.AddressId == id);
@@ -39,6 +49,11 @@ namespace SmartMeter.Controllers
         [HttpPost]
         public async Task<ActionResult<Address>> PostAddress(AddressDto addressDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var address = new Address
             {
                 HouseNumber = addressDto.HouseNumber,
@@ -59,6 +74,11 @@ namespace SmartMeter.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(long id, AddressDto addressDto)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             if (addressDto.AddressId.HasValue && id != addressDto.AddressId.Value)
                 return BadRequest("ID mismatch");
 
@@ -92,6 +112,11 @@ namespace SmartMeter.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAddress(long id)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
             var address = await _context.Addresses.FindAsync(id);
             if (address == null) return NotFound();
             _context.Addresses.Remove(address);
