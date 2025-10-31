@@ -3,6 +3,7 @@ using SmartMeter.DTOs;
 using SmartMeter.Services;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
+using System.Security.Claims;
 
 namespace SmartMeter.Controllers
 {
@@ -104,6 +105,43 @@ namespace SmartMeter.Controllers
         private bool UserExists(long id)
         {
             return _context.Users.Any(e => e.UserId == id && e.IsActive);
+        }
+        [HttpPost("change-password")]
+        public async Task<ActionResult> ChangePassword([FromBody] ChangePasswordDto request)
+        {
+            // Check authentication first
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized("User is not authenticated");
+            }
+
+            // Get ALL claims and log them
+            var allClaims = User.Claims.ToList();
+            var userIdClaim = allClaims.FirstOrDefault(c =>
+                c.Type == ClaimTypes.NameIdentifier ||
+                c.Type == "nameidentifier" ||
+                c.Type == "sub")?.Value;
+
+            if (string.IsNullOrEmpty(userIdClaim))
+            {
+                return Unauthorized(new
+                {
+                    error = "User ID claim not found in token",
+                    availableClaims = allClaims.Select(c => new { c.Type, c.Value })
+                });
+            }
+
+            if (!long.TryParse(userIdClaim, out long userId))
+            {
+                return Unauthorized($"Invalid user ID format: {userIdClaim}");
+            }
+
+            var (success, message) = await _authService.ChangePasswordAsync(userId, request);
+
+            if (!success)
+                return BadRequest(new { error = message });
+
+            return Ok(new { message = "Password changed successfully" });
         }
     }
 }
