@@ -14,23 +14,65 @@ namespace SmartMeter.Controllers
     {
         private readonly IAuthService _authService;
         private readonly ApplicationDbContext _context;
+        private readonly ILoginLogService _loginLogService; // ADD THIS
 
-        public AuthController(IAuthService authService, ApplicationDbContext context)
+        public AuthController(IAuthService authService, ApplicationDbContext context, ILoginLogService loginLogService) // ADD PARAMETER
         {
             _authService = authService;
             _context = context;
+            _loginLogService = loginLogService; // ADD THIS
         }
 
+        // USER ENDPOINTS
+        /* [HttpPost("user/login")]
+         public async Task<ActionResult<AuthResponseDto>> UserLogin(LoginDto loginDto)
+         {
+             var result = await _authService.LoginAsync(loginDto);
+             if (result == null)
+                 return Unauthorized("Invalid username or password");
+             return Ok(result);
+         }
+        */
         // USER ENDPOINTS
         [HttpPost("user/login")]
         public async Task<ActionResult<AuthResponseDto>> UserLogin(LoginDto loginDto)
         {
-            var result = await _authService.LoginAsync(loginDto);
-            if (result == null)
-                return Unauthorized("Invalid username or password");
-            return Ok(result);
-        }
+            try
+            {
+                var result = await _authService.LoginAsync(loginDto);
 
+                if (result == null)
+                {
+                    // Log failed login attempt
+                    await _loginLogService.LogUserLoginAttemptAsync(
+                        loginDto.Username,
+                        "InvalidPassword",
+                        additionalInfo: "Invalid username or password"
+                    );
+                    return Unauthorized("Invalid username or password");
+                }
+
+                // Log successful login
+                await _loginLogService.LogUserLoginAttemptAsync(
+                    loginDto.Username,
+                    "Success",
+                    userId: result.User.UserId,
+                    additionalInfo: "Login successful"
+                );
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                await _loginLogService.LogUserLoginAttemptAsync(
+                    loginDto.Username,
+                    "Error",
+                    additionalInfo: $"Login error: {ex.Message}"
+                );
+                return StatusCode(500, "An error occurred during login");
+            }
+        }
         [HttpPost("user/register")]
         public async Task<ActionResult> UserRegister([FromBody] LoginDto registerDto)
         {
@@ -49,15 +91,56 @@ namespace SmartMeter.Controllers
         }
 
         // CONSUMER ENDPOINTS
+        /* [HttpPost("consumer/login")]
+         public async Task<ActionResult<ConsumerAuthResponseDto>> ConsumerLogin(ConsumerLoginDto loginDto)
+         {
+             var result = await _authService.ConsumerLoginAsync(loginDto);
+             if (result == null)
+                 return Unauthorized("Invalid email or password");
+             return Ok(result);
+         }
+        */
+
+        // CONSUMER ENDPOINTS
         [HttpPost("consumer/login")]
         public async Task<ActionResult<ConsumerAuthResponseDto>> ConsumerLogin(ConsumerLoginDto loginDto)
         {
-            var result = await _authService.ConsumerLoginAsync(loginDto);
-            if (result == null)
-                return Unauthorized("Invalid email or password");
-            return Ok(result);
-        }
+            try
+            {
+                var result = await _authService.ConsumerLoginAsync(loginDto);
 
+                if (result == null)
+                {
+                    // Log failed consumer login attempt
+                    await _loginLogService.LogConsumerLoginAttemptAsync(
+                        loginDto.Email,
+                        "InvalidPassword",
+                        additionalInfo: "Invalid email or password"
+                    );
+                    return Unauthorized("Invalid email or password");
+                }
+
+                // Log successful consumer login
+                await _loginLogService.LogConsumerLoginAttemptAsync(
+                    loginDto.Email,
+                    "Success",
+                    consumerId: result.Consumer.ConsumerId,
+                    additionalInfo: "Consumer login successful"
+                );
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                await _loginLogService.LogConsumerLoginAttemptAsync(
+                    loginDto.Email,
+                    "Error",
+                    additionalInfo: $"Consumer login error: {ex.Message}"
+                );
+                return StatusCode(500, "An error occurred during consumer login");
+            }
+        }
         // EXISTING METHODS...
         [HttpGet("users")]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()

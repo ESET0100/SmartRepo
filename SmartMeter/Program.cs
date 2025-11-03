@@ -93,6 +93,12 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddScoped<JwtHelper>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+// Add HttpContextAccessor for IP address and UserAgent logging
+builder.Services.AddHttpContextAccessor();
+
+// ADD THIS NEW SERVICE REGISTRATION
+builder.Services.AddScoped<ILoginLogService, LoginLogService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
