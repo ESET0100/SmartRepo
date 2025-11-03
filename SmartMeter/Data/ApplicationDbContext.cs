@@ -21,6 +21,8 @@ namespace SmartMeter.Data
         public DbSet<Billing> Billings { get; set; }
         public DbSet<Arrears> Arrears { get; set; }
 
+        public DbSet<LoginLog> LoginLogs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // User configuration
@@ -280,6 +282,30 @@ namespace SmartMeter.Data
                 entity.HasIndex(e => e.ConsumerId).HasDatabaseName("IDX_Arrears_ConsumerId");
                 entity.HasIndex(e => e.BillId).HasDatabaseName("IDX_Arrears_BillId");
                 entity.HasIndex(e => e.PaidStatus).HasDatabaseName("IDX_Arrears_PaidStatus");
+            });
+
+            // ADD THIS NEW LoginLog CONFIGURATION AT THE END
+            modelBuilder.Entity<LoginLog>(entity =>
+            {
+                entity.HasKey(e => e.LogId);
+
+                // Check constraints
+                entity.ToTable(t =>
+                {
+                    t.HasCheckConstraint("CHK_LoginLog_UserType",
+                        @"""UserType"" IN ('User','Consumer')");
+                    t.HasCheckConstraint("CHK_LoginLog_AttemptResult",
+                        @"""AttemptResult"" IN ('Success','InvalidPassword','UserNotFound','Inactive','Deleted')");
+                });
+
+                // Indexes for better query performance
+                entity.HasIndex(e => e.UserType).HasDatabaseName("IDX_LoginLog_UserType");
+                entity.HasIndex(e => e.UserId).HasDatabaseName("IDX_LoginLog_UserId");
+                entity.HasIndex(e => e.ConsumerId).HasDatabaseName("IDX_LoginLog_ConsumerId");
+                entity.HasIndex(e => e.AttemptResult).HasDatabaseName("IDX_LoginLog_AttemptResult");
+                entity.HasIndex(e => e.AttemptTime).HasDatabaseName("IDX_LoginLog_AttemptTime");
+                entity.HasIndex(e => new { e.UserType, e.Identifier }).HasDatabaseName("IDX_LoginLog_UserType_Identifier");
+                entity.HasIndex(e => new { e.AttemptTime, e.UserType }).HasDatabaseName("IDX_LoginLog_Time_UserType");
             });
 
             base.OnModelCreating(modelBuilder);
