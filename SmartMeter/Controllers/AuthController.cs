@@ -4,6 +4,7 @@ using SmartMeter.Services;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using System.Security.Claims;
+using SmartMeter.Models;
 
 namespace SmartMeter.Controllers
 {
@@ -17,22 +18,21 @@ namespace SmartMeter.Controllers
         public AuthController(IAuthService authService, ApplicationDbContext context)
         {
             _authService = authService;
-            _context = context; // ADD THIS
+            _context = context;
         }
 
-        [HttpPost("login")]
-        public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
+        // USER ENDPOINTS
+        [HttpPost("user/login")]
+        public async Task<ActionResult<AuthResponseDto>> UserLogin(LoginDto loginDto)
         {
             var result = await _authService.LoginAsync(loginDto);
-
             if (result == null)
                 return Unauthorized("Invalid username or password");
-
             return Ok(result);
         }
 
-        [HttpPost("register")]
-        public async Task<ActionResult> Register([FromBody] LoginDto registerDto)
+        [HttpPost("user/register")]
+        public async Task<ActionResult> UserRegister([FromBody] LoginDto registerDto)
         {
             var user = new Models.User
             {
@@ -42,13 +42,23 @@ namespace SmartMeter.Controllers
             };
 
             var result = await _authService.RegisterAsync(user, registerDto.Password);
-
             if (result == null)
                 return BadRequest("Username already exists");
 
             return Ok(new { message = "User registered successfully" });
         }
 
+        // CONSUMER ENDPOINTS
+        [HttpPost("consumer/login")]
+        public async Task<ActionResult<ConsumerAuthResponseDto>> ConsumerLogin(ConsumerLoginDto loginDto)
+        {
+            var result = await _authService.ConsumerLoginAsync(loginDto);
+            if (result == null)
+                return Unauthorized("Invalid email or password");
+            return Ok(result);
+        }
+
+        // EXISTING METHODS...
         [HttpGet("users")]
         public async Task<ActionResult<IEnumerable<UserDto>>> GetUsers()
         {
@@ -79,7 +89,6 @@ namespace SmartMeter.Controllers
             if (existingUser == null)
                 return NotFound();
 
-            // Update fields
             existingUser.Username = userDto.Username;
             existingUser.DisplayName = userDto.DisplayName;
             existingUser.Email = userDto.Email;
@@ -101,34 +110,18 @@ namespace SmartMeter.Controllers
             return NoContent();
         }
 
-        // ADD THIS METHOD:
-        private bool UserExists(long id)
-        {
-            return _context.Users.Any(e => e.UserId == id && e.IsActive);
-        }
         [HttpPost("change-password")]
         public async Task<ActionResult> ChangePassword([FromBody] ChangePasswordDto request)
         {
-            // Check authentication first
             if (!User.Identity.IsAuthenticated)
             {
                 return Unauthorized("User is not authenticated");
             }
 
-            // Get ALL claims and log them
-            var allClaims = User.Claims.ToList();
-            var userIdClaim = allClaims.FirstOrDefault(c =>
-                c.Type == ClaimTypes.NameIdentifier ||
-                c.Type == "nameidentifier" ||
-                c.Type == "sub")?.Value;
-
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdClaim))
             {
-                return Unauthorized(new
-                {
-                    error = "User ID claim not found in token",
-                    availableClaims = allClaims.Select(c => new { c.Type, c.Value })
-                });
+                return Unauthorized("User ID claim not found in token");
             }
 
             if (!long.TryParse(userIdClaim, out long userId))
@@ -137,11 +130,15 @@ namespace SmartMeter.Controllers
             }
 
             var (success, message) = await _authService.ChangePasswordAsync(userId, request);
-
             if (!success)
                 return BadRequest(new { error = message });
 
             return Ok(new { message = "Password changed successfully" });
+        }
+
+        private bool UserExists(long id)
+        {
+            return _context.Users.Any(e => e.UserId == id && e.IsActive);
         }
     }
 }

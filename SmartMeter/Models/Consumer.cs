@@ -39,6 +39,10 @@ namespace SmartMeter.Models
         [Column(TypeName = "varchar(20)")]
         public string Status { get; set; } = "Active";
 
+        // ADD PASSWORD HASH FIELD
+        [Required]
+        public byte[] PasswordHash { get; set; } = Array.Empty<byte>();
+
         [Column(TypeName = "timestamp with time zone")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

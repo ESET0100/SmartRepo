@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.Models;
@@ -17,13 +18,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<IEnumerable<Tariff>>> GetTariffs()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             return await _context.Tariffs
                 .Include(t => t.TodRules)
                 .Include(t => t.TariffSlabs)
@@ -32,13 +29,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<Tariff>> GetTariff(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             var tariff = await _context.Tariffs
                 .Include(t => t.TodRules)
                 .Include(t => t.TariffSlabs)
@@ -50,25 +43,18 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Tariff>> PostTariff(Tariff tariff)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             _context.Tariffs.Add(tariff);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetTariff), new { id = tariff.TariffId }, tariff);
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutTariff(int id, Tariff tariff)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             if (id != tariff.TariffId) return BadRequest();
             _context.Entry(tariff).State = EntityState.Modified;
             try { await _context.SaveChangesAsync(); }
@@ -81,12 +67,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteTariff(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             var tariff = await _context.Tariffs.FindAsync(id);
             if (tariff == null) return NotFound();
             _context.Tariffs.Remove(tariff);

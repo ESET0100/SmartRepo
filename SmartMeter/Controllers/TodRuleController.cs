@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,13 +19,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<IEnumerable<TodRule>>> GetTodRules()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             return await _context.TodRules
                 .Include(t => t.Tariff)
                 .Where(t => !t.Deleted)
@@ -32,12 +29,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User,Consumer")]
         public async Task<ActionResult<TodRule>> GetTodRule(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             var todRule = await _context.TodRules
                 .Include(t => t.Tariff)
                 .FirstOrDefaultAsync(t => t.TodRuleId == id && !t.Deleted);
@@ -47,13 +41,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<TodRule>> PostTodRule(TodRuleDto todRuleDto)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-
             var todRule = new TodRule
             {
                 TariffId = todRuleDto.TariffId,
@@ -70,13 +60,9 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutTodRule(int id, TodRuleDto todRuleDto)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
-            // For PUT, we can use the ID from route OR from DTO - both should match
             if (todRuleDto.TodRuleId.HasValue && id != todRuleDto.TodRuleId.Value)
                 return BadRequest("ID mismatch");
 
@@ -84,7 +70,6 @@ namespace SmartMeter.Controllers
             if (existingTodRule == null)
                 return NotFound();
 
-            // Update fields
             existingTodRule.TariffId = todRuleDto.TariffId;
             existingTodRule.Name = todRuleDto.Name;
             existingTodRule.StartTime = todRuleDto.StartTime;
@@ -107,16 +92,12 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteTodRule(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return Unauthorized("User is not authenticated");
-            }
             var todRule = await _context.TodRules.FindAsync(id);
             if (todRule == null) return NotFound();
 
-            // Soft delete
             todRule.Deleted = true;
             await _context.SaveChangesAsync();
             return NoContent();

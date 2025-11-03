@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,6 +19,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<Billing>>> GetBillings()
         {
             if (!User.Identity.IsAuthenticated)
@@ -32,6 +34,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Billing>> GetBilling(long id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -50,6 +53,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Billing>> PostBilling(BillingDto billingDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -77,6 +81,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutBilling(long id, BillingDto billingDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -119,6 +124,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteBilling(long id)
         {
             if (!User.Identity.IsAuthenticated)

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,6 +19,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<MeterReading>>> GetMeterReadings()
         {
             if (!User.Identity.IsAuthenticated)
@@ -31,6 +33,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<MeterReading>> GetMeterReading(long id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -47,6 +50,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<MeterReading>> PostMeterReading(MeterReadingDto meterReadingDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -70,6 +74,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutMeterReading(long id, MeterReadingDto meterReadingDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -107,6 +112,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteMeterReading(long id)
         {
             if (!User.Identity.IsAuthenticated)

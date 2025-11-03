@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SmartMeter.Data;
 using SmartMeter.DTOs;
@@ -18,6 +19,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<IEnumerable<Meter>>> GetMeters()
         {
             if (!User.Identity.IsAuthenticated)
@@ -31,6 +33,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Meter>> GetMeter(string id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -51,6 +54,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public async Task<ActionResult<Meter>> PostMeter(MeterDto meterDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -79,6 +83,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> PutMeter(string id, MeterDto meterDto)
         {
             if (!User.Identity.IsAuthenticated)
@@ -121,6 +126,7 @@ namespace SmartMeter.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "User")]
         public async Task<IActionResult> DeleteMeter(string id)
         {
             if (!User.Identity.IsAuthenticated)
